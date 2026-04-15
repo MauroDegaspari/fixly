@@ -3,18 +3,24 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TecnicosModel extends PessoasModel{
+import enums.PerfilEnum;
+import jakarta.persistence.OneToMany;
+
+public class TecnicosModel extends PessoasModel {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@OneToMany(mappedBy = "tecnico")
 	List<ChamadosModel> chamados = new ArrayList<>();
 
 	public TecnicosModel() {
 		super();
-		// TODO Auto-generated constructor stub
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
-	public TecnicosModel(Integer id, String nome, String email, String senha) {
-		super(id, nome, email, senha);
-		// TODO Auto-generated constructor stub
+	public TecnicosModel(Integer id, String nome, String cpf, String email, String senha) {
+		super(id, nome, cpf, email, senha);
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
 	public List<ChamadosModel> getChamados() {

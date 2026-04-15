@@ -3,21 +3,42 @@ package models;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import enums.PrioridadeEnum;
 import enums.StatusEnum;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
+@Entity(name = "Chamados" )
 public class ChamadosModel {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAbertura = LocalDate.now();
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFechamento;
 	private String titulo;
 	private String observacao;
 	
+	
 	private PrioridadeEnum prioridades;
 	private StatusEnum status;
 	
+	@ManyToOne
+	@JoinColumn(name ="id_tecnico")
 	private TecnicosModel tecnico;
+	
+	@ManyToOne
+	@JoinColumn(name ="id_Cliente")
 	private ClientesModel cliente;
 	
 	public ChamadosModel() {
