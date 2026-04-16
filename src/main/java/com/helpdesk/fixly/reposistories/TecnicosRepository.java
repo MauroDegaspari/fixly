@@ -1,4 +1,4 @@
-package com.helpdesk.fixly.Reposistories;
+package com.helpdesk.fixly.reposistories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
