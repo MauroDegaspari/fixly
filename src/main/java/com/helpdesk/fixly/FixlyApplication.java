@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.helpdesk.fixly.Reposistories.ChamadosRepository;
 import com.helpdesk.fixly.Reposistories.ClientesRepository;
 import com.helpdesk.fixly.Reposistories.TecnicosRepository;
+import com.helpdesk.fixly.enums.PerfilEnum;
 import com.helpdesk.fixly.enums.PrioridadeEnum;
 import com.helpdesk.fixly.enums.StatusEnum;
 import com.helpdesk.fixly.models.ChamadosModel;
@@ -35,7 +36,7 @@ public class FixlyApplication  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		TecnicosModel t1 = new TecnicosModel(null,"Valdir Cesar","61293849","valdi.cersar@email.com","123");
-	//	t1.addPerfil(PerfilEnum.ADMIN);
+		t1.addPerfil(PerfilEnum.ADMIN);
 		
 		ClientesModel cliente1 = new ClientesModel(null,"Linus Torvaldo","12393849","linus@email.com","321");
 		
@@ -43,7 +44,7 @@ public class FixlyApplication  implements CommandLineRunner{
 		
 		
 		repoTecnico.save(t1);
-		repoCliente.saveAll(Arrays.asList(cliente1));
+		repoCliente.saveAll(Arrays.asList(cliente1));	
 		repoChamado.saveAll(Arrays.asList(c1));
 	}
 
