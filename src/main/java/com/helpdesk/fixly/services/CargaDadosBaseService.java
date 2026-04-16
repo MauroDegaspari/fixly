@@ -16,7 +16,7 @@ import com.helpdesk.fixly.reposistories.ClientesRepository;
 import com.helpdesk.fixly.reposistories.TecnicosRepository;
 
 @Service
-public class CargaBaseTstService {
+public class CargaDadosBaseService {
 	
 	@Autowired
 	private ClientesRepository repoCliente;
@@ -26,7 +26,7 @@ public class CargaBaseTstService {
 	private ChamadosRepository repoChamado;
 	
 
-	public void CargaBaseTst() {
+	public void CargaBaseDatos() {
 
 		TecnicosModel t1 = new TecnicosModel(null,"Valdir Cesar","61293849","valdi.cersar@email.com","123");
 		t1.addPerfil(PerfilEnum.ADMIN);

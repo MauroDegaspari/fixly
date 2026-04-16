@@ -8,7 +8,7 @@ import com.helpdesk.fixly.enums.PerfilEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-@Entity(name = "PESSOAS" )
+@Entity(name = "CLIENTES" )
 public class ClientesModel extends PessoasModel{	
 	
 	private static final long serialVersionUID = 1L;
