@@ -1,4 +1,4 @@
-package models;
+package com.helpdesk.fixly.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,8 +8,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.helpdesk.fixly.enums.PerfilEnum;
 
-import enums.PerfilEnum;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;

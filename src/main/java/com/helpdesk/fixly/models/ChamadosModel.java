@@ -1,12 +1,12 @@
-package models;
+package com.helpdesk.fixly.models;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.helpdesk.fixly.enums.PrioridadeEnum;
+import com.helpdesk.fixly.enums.StatusEnum;
 
-import enums.PrioridadeEnum;
-import enums.StatusEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

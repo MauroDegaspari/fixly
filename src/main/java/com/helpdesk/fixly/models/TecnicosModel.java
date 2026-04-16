@@ -1,28 +1,29 @@
-package models;
+package com.helpdesk.fixly.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import enums.PerfilEnum;
+import com.helpdesk.fixly.enums.PerfilEnum;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-@Entity(name = "PESSOAS" )
-public class ClientesModel extends PessoasModel{	
+@Entity(name = "TECNICOS" )
+public class TecnicosModel extends PessoasModel {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "tecnico")
 	List<ChamadosModel> chamados = new ArrayList<>();
 
-	public ClientesModel() {
+	public TecnicosModel() {
 		super();
-		addPerfil(PerfilEnum.CLIENTE);
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
-	public ClientesModel(Integer id, String nome, String cpf, String email, String senha) {
+	public TecnicosModel(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		addPerfil(PerfilEnum.CLIENTE);
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
 	public List<ChamadosModel> getChamados() {
@@ -32,8 +33,6 @@ public class ClientesModel extends PessoasModel{
 	public void setChamados(List<ChamadosModel> chamados) {
 		this.chamados = chamados;
 	}
-	
-	
 	
 	
 

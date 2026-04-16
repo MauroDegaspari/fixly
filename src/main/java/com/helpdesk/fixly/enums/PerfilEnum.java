@@ -1,4 +1,4 @@
-package enums;
+package com.helpdesk.fixly.enums;
 
 public enum PerfilEnum {
 
