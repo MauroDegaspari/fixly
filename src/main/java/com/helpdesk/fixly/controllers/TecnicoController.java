@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.helpdesk.fixly.dtos.TecnicoDto;
 import com.helpdesk.fixly.models.TecnicosModel;
 import com.helpdesk.fixly.services.TecnicoService;
 
@@ -18,10 +19,10 @@ public class TecnicoController {
 	private TecnicoService tecService;
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<TecnicosModel> findById(@PathVariable Integer id){
+	public ResponseEntity<TecnicoDto> findById(@PathVariable Integer id){
 		TecnicosModel obj = tecService.AcharTecnicoId(id);
 		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(new TecnicoDto(obj));
 		
 	}
 	
