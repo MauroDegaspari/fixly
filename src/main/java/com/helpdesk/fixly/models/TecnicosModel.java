@@ -3,6 +3,7 @@ package com.helpdesk.fixly.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.helpdesk.fixly.enums.PerfilEnum;
 
 import jakarta.persistence.Entity;
@@ -13,6 +14,7 @@ public class TecnicosModel extends PessoasModel {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "tecnico")
 	List<ChamadosModel> chamados = new ArrayList<>();
 
