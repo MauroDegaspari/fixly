@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.helpdesk.fixly.dtos.TecnicoDto;
 import com.helpdesk.fixly.exceptions.NotFoundException;
 import com.helpdesk.fixly.models.TecnicosModel;
 import com.helpdesk.fixly.reposistories.TecnicosRepository;
@@ -26,5 +27,11 @@ public class TecnicoService {
 		List<TecnicosModel> obj = repo.findAll();
 		
 		return obj;
+	}
+	
+	public TecnicosModel create(TecnicoDto tecnico) {
+		TecnicosModel tec = new TecnicosModel(tecnico);
+		
+		return repo.save(tec);
 	}
 }
