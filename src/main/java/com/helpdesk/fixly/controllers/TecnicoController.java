@@ -1,5 +1,8 @@
 package com.helpdesk.fixly.controllers;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,15 @@ public class TecnicoController {
 		
 		return ResponseEntity.ok().body(new TecnicoDto(obj));
 		
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<TecnicoDto>> findAll(){
+		
+		List<TecnicosModel> listObj = tecService.AcharTodos();
+		List<TecnicoDto> listDto = listObj.stream().map(x -> new TecnicoDto(x)).collect(Collectors.toList());
+		
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 }

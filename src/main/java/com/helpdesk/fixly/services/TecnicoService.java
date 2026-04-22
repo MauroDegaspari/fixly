@@ -1,5 +1,6 @@
 package com.helpdesk.fixly.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,11 @@ public class TecnicoService {
 		Optional<TecnicosModel> obj = repo.findById(id);
 		
 		return obj.orElseThrow(() -> new  NotFoundException("Tecnico não encontrado pelo ID: "+ id));
+	}
+	
+	public List<TecnicosModel> AcharTodos() {
+		List<TecnicosModel> obj = repo.findAll();
+		
+		return obj;
 	}
 }
