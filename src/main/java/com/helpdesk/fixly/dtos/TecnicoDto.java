@@ -24,7 +24,7 @@ public class TecnicoDto {
 
 	public TecnicoDto() {
 		super();
-		// TODO Auto-generated constructor stub
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
 	public TecnicoDto(TecnicosModel tec) {
@@ -36,6 +36,7 @@ public class TecnicoDto {
 		this.senha = tec.getSenha();
 		this.perfis = tec.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCadastro = tec.getDataCadastro();
+		addPerfil(PerfilEnum.TECNICO);
 	}
 
 	public Integer getId() {

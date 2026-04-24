@@ -32,7 +32,7 @@ public abstract class PessoasModel implements Serializable {
 	protected String cpf;
 	protected String email;
 
-	@Column(unique = true)
+	//@Column(unique = true)
 	protected String senha;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
