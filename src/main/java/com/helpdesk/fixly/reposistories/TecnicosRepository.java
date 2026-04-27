@@ -6,4 +6,5 @@ import com.helpdesk.fixly.models.TecnicosModel;
 
 public interface TecnicosRepository extends JpaRepository<TecnicosModel, Integer>{
 
+
 }
