@@ -18,6 +18,8 @@ import com.helpdesk.fixly.dtos.TecnicoDto;
 import com.helpdesk.fixly.models.TecnicosModel;
 import com.helpdesk.fixly.services.TecnicoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoController {
@@ -43,7 +45,7 @@ public class TecnicoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<TecnicoDto> create(@RequestBody TecnicoDto objTecnico){
+	public ResponseEntity<TecnicoDto> create(@Valid @RequestBody TecnicoDto objTecnico){
 		TecnicosModel newObj = tecService.create(objTecnico);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		

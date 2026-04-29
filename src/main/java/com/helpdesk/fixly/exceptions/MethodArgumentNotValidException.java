@@ -1,0 +1,18 @@
+package com.helpdesk.fixly.exceptions;
+
+public class MethodArgumentNotValidException extends RuntimeException {
+
+	private static final long serialVersionUID = 1L;
+
+	public MethodArgumentNotValidException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public MethodArgumentNotValidException(String message) {
+		super(message);
+	}
+	
+	
+	
+
+}

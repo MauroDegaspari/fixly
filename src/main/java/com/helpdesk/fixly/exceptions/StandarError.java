@@ -8,9 +8,13 @@ public class StandarError {
 	private String messager;
 	private String path;
 	
+	private String field;
+	
+	
 	public StandarError() {
 		super();
 	}
+	
 
 	public StandarError(Long timestamp, Integer status, String error, String messager, String path) {
 		super();
@@ -20,6 +24,7 @@ public class StandarError {
 		this.messager = messager;
 		this.path = path;
 	}
+	
 
 	public Long getTimestamp() {
 		return timestamp;

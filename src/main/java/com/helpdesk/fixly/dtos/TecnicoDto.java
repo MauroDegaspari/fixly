@@ -9,13 +9,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.helpdesk.fixly.enums.PerfilEnum;
 import com.helpdesk.fixly.models.TecnicosModel;
 
+import jakarta.validation.constraints.NotNull;
+
 public class TecnicoDto {
 	
 	
 	protected Integer id;
+	
+	@NotNull(message = "Nome deve ser Registrado")
 	protected String nome;
+	
+	@NotNull(message = "Cpf deve ser Registrado")	
 	protected String cpf;
+	
+	@NotNull(message = "Email deve ser Registrado")
 	protected String email;
+	
+	@NotNull(message = "Senha deve ser Registrado")
 	protected String senha;
 	protected Set<Integer> perfis = new HashSet<>();
 	
