@@ -65,6 +65,17 @@ public class StandarError {
 	public void setPath(String path) {
 		this.path = path;
 	}
+
+
+	public String getField() {
+		return field;
+	}
+
+
+	public void setField(String field) {
+		this.field = field;
+	}
+	
 	
 	
 	
