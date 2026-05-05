@@ -39,11 +39,16 @@ public class Handler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<StandarError> methodArgumentNotValidException(MethodArgumentNotValidException ex, HttpServletRequest request ){
 		
+		var fieldName = ex.getBindingResult().getFieldError().getField();
+		var errorMessage = ex.getBindingResult().getFieldError().getDefaultMessage();
+		
 		StandarError erro = new StandarError(System.currentTimeMillis(),
 				 HttpStatus.BAD_REQUEST.value(),
-				 "Campo Null",
-				 ex.getMessage(),
+				 "Erro Valiedação de campos",
+				 errorMessage,
 				 request.getRequestURI());
+		
+		erro.setField(fieldName);
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
