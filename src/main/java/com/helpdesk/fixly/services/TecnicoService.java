@@ -58,6 +58,15 @@ public class TecnicoService {
 		return repo.save(novoTec);
 	}
 	
+	public void deleteTecnico(Integer id) {
+		TecnicosModel tec = AcharTecnicoId(id);
+		
+		if(!tec.getChamados().isEmpty()) {
+			throw new DataIntegrityViolationException("Tecnico possui chamados, não pode ser Deletado.");
+		}
+		
+		repo.deleteById(id);
+	}
 	private void validarCpfEEmail(TecnicoDto tecnicoParam) {
 		Optional<PessoasModel> objPessoasCpf = PRepo.findByCpf(tecnicoParam.getCpf());
 		Optional<PessoasModel> objPessoasEmail = PRepo.findByEmail(tecnicoParam.getEmail());
@@ -68,4 +77,5 @@ public class TecnicoService {
 			throw new DataIntegrityViolationException("Email já cadastro no Id: "+ objPessoasEmail.get().getId());
 		}
 	}
+
 }

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,6 +60,13 @@ public class TecnicoController {
 		TecnicosModel novoTecnico = tecService.Atualizar(id, objTecnico);
 		
 		return ResponseEntity.ok().body(new TecnicoDto(novoTecnico));
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<TecnicoDto> delete(@PathVariable Integer id){
+		tecService.deleteTecnico(id);
+		
+		return ResponseEntity.noContent().build();
 	}
 	
 }
