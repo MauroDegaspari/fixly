@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,14 @@ public class TecnicoController {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
 		
 		return  ResponseEntity.created(uri).build();
+	}
+	
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<TecnicoDto> update(@Valid @PathVariable Integer id, @RequestBody TecnicoDto objTecnico ){
+		TecnicosModel novoTecnico = tecService.Atualizar(id, objTecnico);
+		
+		return ResponseEntity.ok().body(new TecnicoDto(novoTecnico));
 	}
 	
 }

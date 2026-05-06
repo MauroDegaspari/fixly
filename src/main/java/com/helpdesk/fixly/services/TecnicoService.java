@@ -14,6 +14,8 @@ import com.helpdesk.fixly.models.TecnicosModel;
 import com.helpdesk.fixly.reposistories.PessoasRepository;
 import com.helpdesk.fixly.reposistories.TecnicosRepository;
 
+import jakarta.validation.Valid;
+
 @Service
 public class TecnicoService {
 
@@ -43,6 +45,19 @@ public class TecnicoService {
 		return repo.save(tec);
 	}
 	
+
+	public TecnicosModel Atualizar(@Valid Integer id, TecnicoDto objTecnico) {
+		
+		objTecnico.setId(id);// Evita falha de segurança.
+		
+		TecnicosModel novoTec = AcharTecnicoId(id);
+		validarCpfEEmail(objTecnico);
+		novoTec = new TecnicosModel(objTecnico);
+		
+		
+		return repo.save(novoTec);
+	}
+	
 	private void validarCpfEEmail(TecnicoDto tecnicoParam) {
 		Optional<PessoasModel> objPessoasCpf = PRepo.findByCpf(tecnicoParam.getCpf());
 		Optional<PessoasModel> objPessoasEmail = PRepo.findByEmail(tecnicoParam.getEmail());
@@ -53,5 +68,4 @@ public class TecnicoService {
 			throw new DataIntegrityViolationException("Email já cadastro no Id: "+ objPessoasEmail.get().getId());
 		}
 	}
-	
 }
