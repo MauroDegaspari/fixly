@@ -58,7 +58,7 @@ public class ClienteService {
 		return repo.save(novoTec);
 	}
 	
-	public void deleteTecnico(Integer id) {
+	public void deleteCliente(Integer id) {
 		ClientesModel tec = AcharTecnicoId(id);
 		
 		if(!tec.getChamados().isEmpty()) {

@@ -66,7 +66,7 @@ public class ClienteController {
 	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<ClienteDto> delete(@PathVariable Integer id){
-		clienteService.deleteTecnico(id);
+		clienteService.deleteCliente(id);
 		
 		return ResponseEntity.noContent().build();
 	}
