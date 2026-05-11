@@ -1,5 +1,6 @@
 package com.helpdesk.fixly.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,8 @@ import com.helpdesk.fixly.models.ChamadosModel;
 import com.helpdesk.fixly.models.ClientesModel;
 import com.helpdesk.fixly.models.TecnicosModel;
 import com.helpdesk.fixly.reposistories.ChamadosRepository;
+
+import jakarta.validation.Valid;
 
 @Service
 public class ChamadosService {
@@ -43,6 +46,15 @@ public class ChamadosService {
 		return repo.save(criarOuAtualizarChamado(objDto));
 	}
 	
+	public ChamadosModel atualizaChamado(Integer id, ChamadosDto objDto) {
+		objDto.setId(id);
+		
+		ChamadosModel atualizar = acharChamado(id) ;
+		atualizar = criarChamado(objDto);
+		
+		return repo.save(atualizar);
+	}
+	
 	private ChamadosModel criarOuAtualizarChamado(ChamadosDto dto) {
 		TecnicosModel tecnico = tecnicoService.AcharTecnicoId(dto.getTecnico());
 		ClientesModel cliente = clienteService.AcharClienteId(dto.getCliente());
@@ -60,8 +72,13 @@ public class ChamadosService {
 		chamado.setTitulo(dto.getTitulo());
 		chamado.setObservacao(dto.getObservacao());
 		
+		if (dto.getStatus() == 2) {
+			chamado.setDataFechamento(LocalDate.now());
+		}
+		
 		return chamado;
 	}
+
 
 	
 }
