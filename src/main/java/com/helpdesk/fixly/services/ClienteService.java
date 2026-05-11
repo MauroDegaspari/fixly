@@ -25,7 +25,7 @@ public class ClienteService {
 	@Autowired
 	private PessoasRepository PRepo;
 	
-	public ClientesModel AcharTecnicoId(Integer id) {
+	public ClientesModel AcharClienteId(Integer id) {
 		Optional<ClientesModel> obj = repo.findById(id);
 		
 		return obj.orElseThrow(() -> new  NotFoundException("Cliente não encontrado pelo ID: "+ id));
@@ -50,7 +50,7 @@ public class ClienteService {
 		
 		objTecnico.setId(id);// Evita falha de segurança.
 		
-		ClientesModel novoTec = AcharTecnicoId(id);
+		ClientesModel novoTec = AcharClienteId(id);
 		validarCpfEEmail(objTecnico);
 		novoTec = new ClientesModel(objTecnico);
 		
@@ -59,7 +59,7 @@ public class ClienteService {
 	}
 	
 	public void deleteCliente(Integer id) {
-		ClientesModel tec = AcharTecnicoId(id);
+		ClientesModel tec = AcharClienteId(id);
 		
 		if(!tec.getChamados().isEmpty()) {
 			throw new DataIntegrityViolationException("Tecnico possui chamados, não pode ser Deletado.");

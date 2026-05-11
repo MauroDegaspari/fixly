@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.helpdesk.fixly.dtos.ClienteDto;
-import com.helpdesk.fixly.dtos.ClienteDto;
-import com.helpdesk.fixly.models.ClientesModel;
 import com.helpdesk.fixly.models.ClientesModel;
 import com.helpdesk.fixly.services.ClienteService;
 
@@ -33,7 +31,7 @@ public class ClienteController {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ClienteDto> findById(@PathVariable Integer id){
-		ClientesModel obj = clienteService.AcharTecnicoId(id);
+		ClientesModel obj = clienteService.AcharClienteId(id);
 		
 		return ResponseEntity.ok().body(new ClienteDto(obj));
 		

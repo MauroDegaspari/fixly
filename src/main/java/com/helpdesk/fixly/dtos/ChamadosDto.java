@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.helpdesk.fixly.models.ChamadosModel;
 
+import jakarta.validation.constraints.NotNull;
+
 public class ChamadosDto implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
@@ -14,13 +16,18 @@ public class ChamadosDto implements Serializable{
 	private LocalDate dataAbertura = LocalDate.now();
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFechamento;
-	private String titulo;
 	private String observacao;	
+	@NotNull(message = "Campo Titulo é obrigatorio")
+	private String titulo;
+	@NotNull(message = "Campo Prioridade é obrigatorio")
 	private Integer prioridades;
+	@NotNull(message = "Campo Status é obrigatorio")
 	private Integer status;
+	@NotNull(message = "Campo Tecnico é obrigatorio")
 	private Integer tecnico;
-	private String nomeTecnico;
+	@NotNull(message = "Campo Cliente é obrigatorio")
 	private Integer cliente;
+	private String nomeTecnico;
 	private String nomeCliente;
 	
 	
