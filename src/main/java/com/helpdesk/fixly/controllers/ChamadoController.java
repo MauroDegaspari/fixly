@@ -36,8 +36,7 @@ public class ChamadoController {
 		
 		return ResponseEntity.ok().body(new ChamadosDto(chamadoId	));
 	}
-	
-	
+		
 	
 	@GetMapping
 	public ResponseEntity<List<ChamadosDto>> todosChamados(){
@@ -57,7 +56,7 @@ public class ChamadoController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ChamadosDto> updateChamado(Integer id, @Valid @RequestBody ChamadosDto objDto){
+	public ResponseEntity<ChamadosDto> updateChamado(@PathVariable Integer id, @Valid @RequestBody ChamadosDto objDto){
 		ChamadosModel atualizaChamado = service.atualizaChamado(id, objDto);
 		
 		return ResponseEntity.ok().body(new ChamadosDto(atualizaChamado));
