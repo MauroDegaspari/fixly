@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.helpdesk.fixly.dtos.ClienteDto;
@@ -25,6 +26,9 @@ public class ClienteService {
 	@Autowired
 	private PessoasRepository PRepo;
 	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
 	public ClientesModel AcharClienteId(Integer id) {
 		Optional<ClientesModel> obj = repo.findById(id);
 		
@@ -40,6 +44,7 @@ public class ClienteService {
 	public ClientesModel create(ClienteDto salvaCliente) {
 		ClientesModel cliente = new ClientesModel(salvaCliente);
 		
+		cliente.setSenha(encoder.encode(salvaCliente.getSenha()));
 		validarCpfEEmail(salvaCliente);
 		
 		return repo.save(cliente);

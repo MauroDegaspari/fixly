@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.helpdesk.fixly.dtos.TecnicoDto;
@@ -25,6 +26,9 @@ public class TecnicoService {
 	@Autowired
 	private PessoasRepository PRepo;
 	
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
 	public TecnicosModel AcharTecnicoId(Integer id) {
 		Optional<TecnicosModel> obj = repo.findById(id);
 		
@@ -40,6 +44,7 @@ public class TecnicoService {
 	public TecnicosModel create(TecnicoDto tecnico) {
 		TecnicosModel tec = new TecnicosModel(tecnico);
 		
+		tec.setSenha(encoder.encode(tecnico.getSenha()));
 		validarCpfEEmail(tecnico);
 		
 		return repo.save(tec);

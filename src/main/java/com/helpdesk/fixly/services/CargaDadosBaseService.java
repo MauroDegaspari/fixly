@@ -3,6 +3,7 @@ package com.helpdesk.fixly.services;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.helpdesk.fixly.enums.PerfilEnum;
@@ -24,14 +25,16 @@ public class CargaDadosBaseService {
 	private TecnicosRepository repoTecnico;
 	@Autowired
 	private ChamadosRepository repoChamado;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
 	
 
 	public void CargaBaseDatos() {
 
-		TecnicosModel t1 = new TecnicosModel(null,"Valdir Cesar","61293849","valdi.cersar@email.com","123");
+		TecnicosModel t1 = new TecnicosModel(null,"Valdir Cesar","61293849","valdi.cersar@email.com",encoder.encode("123"));
 		t1.addPerfil(PerfilEnum.ADMIN);
 		
-		ClientesModel cliente1 = new ClientesModel(null,"Linus Torvaldo","12393849","linus@email.com","321");
+		ClientesModel cliente1 = new ClientesModel(null,"Linus Torvaldo","12393849","linus@email.com",encoder.encode("321"));
 		
 		ChamadosModel c1 = new ChamadosModel(null,"Chamado 01","Primeiro Chamado via Repository",PrioridadeEnum.MEDIA, StatusEnum.ANDAMENTO,t1,cliente1 );
 		
