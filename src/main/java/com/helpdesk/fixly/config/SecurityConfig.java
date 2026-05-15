@@ -3,9 +3,12 @@ package com.helpdesk.fixly.config;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.session.RedisSessionProperties.ConfigureAction;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,18 +16,28 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.helpdesk.fixly.security.JWTUtil;
+
 @Configuration
-public class SecurityConfig {
+public class SecurityConfig{
 	
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+	private JWTUtil aut;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+  
+	@Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationConfiguration authConfig) throws Exception {
+    	
+    	AuthenticationManager authManager = authConfig.getAuthenticationManager();   
     	
     	if(env.acceptsProfiles("tst")) {
     		http.headers().frameOptions().disable();
     	}
+    	
+    	http.addFilter(new JWTAuth(authManager, aut));
 
         http
             .csrf(csrf -> csrf.disable())
@@ -33,6 +46,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+	
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

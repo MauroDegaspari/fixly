@@ -23,13 +23,12 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JWTAuth extends UsernamePasswordAuthenticationFilter {
 
 	private AuthenticationManager auth;		//principal interface de autenticação
-	private JWTUtil jwt;
 	
-	
-	public JWTAuth(AuthenticationManager auth, JWTUtil jwt) {
-		super();
-		this.auth = auth;
-		this.jwt = jwt;
+	private JWTUtil jwtUtil;
+
+	public JWTAuth(AuthenticationManager auth, JWTUtil jwtUtil) {
+	    this.auth = auth;
+	    this.jwtUtil = jwtUtil;
 	}
 	
 	@Override
@@ -51,10 +50,10 @@ public class JWTAuth extends UsernamePasswordAuthenticationFilter {
 			Authentication authResult) throws IOException, ServletException {
 			
 			String username = ((UserSS) authResult.getPrincipal()).getUsername();
-			String token  = jwt.geradorToken(username);	
+			String token  = jwtUtil.geradorToken(username);	
 			
 			response.setHeader("access-control-expose-headers", "Authorization");
-			response.setHeader("Authorization", "Bearer" + token);
+			response.setHeader("Authorization", "Bearer " + token);
 	}
 	
 	@Override
