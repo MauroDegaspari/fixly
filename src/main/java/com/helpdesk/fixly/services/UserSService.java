@@ -1,4 +1,4 @@
-package com.helpdesk.fixly.security;
+package com.helpdesk.fixly.services;
 
 import java.util.Optional;
 
@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.helpdesk.fixly.models.PessoasModel;
 import com.helpdesk.fixly.reposistories.PessoasRepository;
+import com.helpdesk.fixly.security.UserSS;
 
 @Service
-public class UserServiceImp implements UserDetailsService{
+public class UserSService implements UserDetailsService{
 
 	@Autowired
 	private PessoasRepository repo;
