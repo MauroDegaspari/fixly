@@ -26,6 +26,17 @@ public class JWTUtil {
 				.setExpiration(new Date(System.currentTimeMillis() + expiration))   //Setta o valor de data atual + o pre definido no properties de expiração
 				.signWith(SignatureAlgorithm.HS512, secret.getBytes())               // Algoritmo usado para assinatura do token, 2 parametro é a chave usada no properties
 				.compact(); 
-	}			
+	}
 
+	public boolean tokenValido(String token) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getUserName(String token) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
