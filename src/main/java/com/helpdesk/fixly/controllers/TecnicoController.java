@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +47,7 @@ public class TecnicoController {
 		return ResponseEntity.ok().body(listDto);
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@PostMapping
 	public ResponseEntity<TecnicoDto> create(@Valid @RequestBody TecnicoDto objTecnico){
 		TecnicosModel newObj = tecService.create(objTecnico);
@@ -54,7 +56,7 @@ public class TecnicoController {
 		return  ResponseEntity.created(uri).build();
 	}
 	
-	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<TecnicoDto> update(@Valid @PathVariable Integer id, @RequestBody TecnicoDto objTecnico ){
 		TecnicosModel novoTecnico = tecService.Atualizar(id, objTecnico);
@@ -62,6 +64,7 @@ public class TecnicoController {
 		return ResponseEntity.ok().body(new TecnicoDto(novoTecnico));
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<TecnicoDto> delete(@PathVariable Integer id){
 		tecService.deleteTecnico(id);

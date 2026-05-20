@@ -1,42 +1,68 @@
 package com.helpdesk.fixly.security;
 
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JWTUtil {
 
-	@Value("${jwt.expiration}")
-	private long expiration;
-	
-	@Value("${jwt.secret}")
-	private String secret;
-	
-	@SuppressWarnings("deprecation")
-	public String geradorToken(String email) {
-		
-		
-		return Jwts.builder()
-				.setSubject(email)     												 //Define o valor! informações do token ;
-				.setExpiration(new Date(System.currentTimeMillis() + expiration))   //Setta o valor de data atual + o pre definido no properties de expiração
-				.signWith(SignatureAlgorithm.HS512, secret.getBytes())               // Algoritmo usado para assinatura do token, 2 parametro é a chave usada no properties
-				.compact(); 
-	}
+    @Value("${jwt.expiration}")
+    private Long expiration;
 
-	public boolean tokenValido(String token) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Value("${jwt.secret}")
+    private String secret;
 
-	public String getUserName(String token) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    // Gera a chave secreta de forma segura para o JJWT 0.11.5
+    private Key getSigningKey() {
+        byte[] keyBytes = this.secret.getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
 
-	
+    public String geradorToken(String email) {
+        return Jwts.builder()
+                .setSubject(email)
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS512)
+                .compact();
+    }
+
+    public boolean tokenValido(String token) {
+        Claims claims = getClaims(token);
+        if (claims != null) {
+            String username = claims.getSubject();
+            Date expirationDate = claims.getExpiration();
+            Date now = new Date(System.currentTimeMillis());
+            return username != null && expirationDate != null && now.before(expirationDate);
+        }
+        return false;
+    }
+
+    public String getUserName(String token) {
+        Claims claims = getClaims(token);
+        if (claims != null) {
+            return claims.getSubject();
+        }
+        return null;
+    }
+
+    private Claims getClaims(String token) {
+        try {
+            return Jwts.parserBuilder()
+                    .setSigningKey(getSigningKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
