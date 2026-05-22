@@ -2,12 +2,7 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h1>Hello, {{ title() }}</h1>
-    <p>Congratulations! Your app is running. 🎉</p>
-    
-    <router-outlet />
-  `,
+  templateUrl:'app.html',
   standalone: false,
   styles: []
 })
