@@ -10,24 +10,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Para realizar Requisições  HTTP
 import { HttpClient } from '@angular/common/http';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+
+//Componentes do projetos
+import { Nav } from './components/nav/nav';
+import { Index } from './telas/index/index';
 
 @NgModule({
-  declarations: [
-    App
-  ],
+  declarations: [App, Nav, Index],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,11 +45,9 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatPaginatorModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
   ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-  ],
-  bootstrap: [App]
+  providers: [provideBrowserGlobalErrorListeners()],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}
