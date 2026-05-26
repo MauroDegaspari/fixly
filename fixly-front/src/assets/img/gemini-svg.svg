@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fixlyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="60%" stop-color="#3A47D5" />
+      <stop offset="100%" stop-color="#7F00FF" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(30, 25)">
+    <g id="logo-icon">
+      <path d="M20,40 
+               H65 A15,15 0 0,1 95,40 
+               H140 
+               A20,20 0 0,1 160,60 
+               V90 A15,15 0 0,1 160,120 
+               V150 
+               A20,20 0 0,1 140,170 
+               H20 
+               A20,20 0 0,1 0,150 
+               V120 A15,15 0 0,1 0,90 
+               V60 
+               A20,20 0 0,1 20,40 Z" 
+            fill="url(#fixlyGrad)" />
+      
+      <path d="M45,105 L65,125 L115,75" 
+            fill="none" 
+            stroke="#FFFFFF" 
+            stroke-width="14" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+    </g>
+
+    <text x="190" y="125" 
+          font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="82" 
+          font-weight="800" 
+          fill="url(#fixlyGrad)" 
+          letter-spacing="-2">Fixly</text>
+
+    <text x="195" y="160" 
+          font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="13" 
+          font-weight="700" 
+          fill="#556080" 
+          letter-spacing="3.5">GERENCIAMENTO DE TICKETS</text>
+  </g>
+</svg>

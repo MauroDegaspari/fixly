@@ -39,14 +39,12 @@
 
   <div class="sidenav-content">
 
-    <button
-      class="menu"
-      (click)="drawer.toggle()"
-      mat-icon-button>
+    <button class="menu" (click)="drawer.toggle()" mat-icon-button>
 
       <mat-icon>menu</mat-icon>
 
     </button>
+    <router-outlet></router-outlet>
 
   </div>
 
