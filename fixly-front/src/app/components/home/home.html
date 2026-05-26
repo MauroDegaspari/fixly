@@ -1,1 +1,121 @@
-<p>home works!</p>
+<div class="dashboard-container">
+  <div class="background-glow"></div>
+
+  <header class="welcome-header">
+    <div class="user-meta">
+      <h1>Olá, Mauro Degaspari 👋</h1>
+      <p>Bem-vindo de volta ao Fixly. Aqui está o resumo do seu dia.</p>
+    </div>
+    <div class="quick-actions">
+      <button class="btn-action-primary">
+        <span class="icon">+</span> Novo Chamado
+      </button>
+    </div>
+  </header>
+
+  <section class="metrics-grid">
+    <div class="metric-card border-blue">
+      <div class="metric-info">
+        <span class="metric-label">Chamados Abertos</span>
+        <h2 class="metric-value">12</h2>
+      </div>
+      <div class="metric-icon blue">🎫</div>
+    </div>
+
+    <div class="metric-card border-amber">
+      <div class="metric-info">
+        <span class="metric-label">Em Atendimento</span>
+        <h2 class="metric-value">5</h2>
+      </div>
+      <div class="metric-icon amber">⏳</div>
+    </div>
+
+    <div class="metric-card border-green">
+      <div class="metric-info">
+        <span class="metric-label">Resolvidos Hoje</span>
+        <h2 class="metric-value">18</h2>
+      </div>
+      <div class="metric-icon green">✅</div>
+    </div>
+
+    <div class="metric-card border-purple">
+      <div class="metric-info">
+        <span class="metric-label">Técnicos Ativos</span>
+        <h2 class="metric-value">4 / 6</h2>
+      </div>
+      <div class="metric-icon purple">👨‍🔧</div>
+    </div>
+  </section>
+
+  <div class="content-layout">
+    
+    <section class="main-panel">
+      <div class="panel-header">
+        <h3>Tickets Recentes de Alta Prioridade</h3>
+        <a href="#" class="view-all">Ver todos</a>
+      </div>
+
+      <div class="ticket-list">
+        <div class="ticket-row critical">
+          <div class="ticket-status-dot"></div>
+          <div class="ticket-details">
+            <h4>#1024 - Erro crítico na API de pagamentos</h4>
+            <p>Cliente: Banco Alfa • Atribuído a: Carlos Silva</p>
+          </div>
+          <span class="badge badge-danger">Crítico</span>
+        </div>
+
+        <div class="ticket-row high">
+          <div class="ticket-status-dot"></div>
+          <div class="ticket-details">
+            <h4>#1023 - Instabilidade no servidor de produção</h4>
+            <p>Cliente: TechStore • Atribuído a: João Souza</p>
+          </div>
+          <span class="badge badge-warning">Alta</span>
+        </div>
+
+        <div class="ticket-row normal">
+          <div class="ticket-status-dot"></div>
+          <div class="ticket-details">
+            <h4>#1020 - Configuração de certificado SSL</h4>
+            <p>Cliente: Oficina Mecânica RJ • Sem técnico</p>
+          </div>
+          <span class="badge badge-info">Normal</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side-panel">
+      <div class="panel-header">
+        <h3>Status da Equipe</h3>
+      </div>
+
+      <div class="tech-list">
+        <div class="tech-item">
+          <div class="tech-avatar online">CS</div>
+          <div class="tech-info">
+            <p class="tech-name">Carlos Silva</p>
+            <p class="tech-status">Em atendimento (Ticket #1024)</p>
+          </div>
+        </div>
+
+        <div class="tech-item">
+          <div class="tech-avatar online">JS</div>
+          <div class="tech-info">
+            <p class="tech-name">João Souza</p>
+            <p class="tech-status">Em atendimento (Ticket #1023)</p>
+          </div>
+        </div>
+
+        <div class="tech-item">
+          <div class="tech-avatar away">FM</div>
+          <div class="tech-info">
+            <p class="tech-name">Fernanda Lima</p>
+            <p class="tech-status">Ausente • Almoço</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
