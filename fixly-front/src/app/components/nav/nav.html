@@ -1,1 +1,53 @@
-<p>nav works!</p>
+<mat-drawer-container class="container" autosize>
+
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+
+    <div class="logo">
+      Fixly
+    </div>
+
+    <mat-nav-list class="nav-list">
+
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+        Home
+      </a>
+
+      <a mat-list-item routerLink="/tecnicos" routerLinkActive="active">
+        <mat-icon>engineering</mat-icon>
+        Técnicos
+      </a>
+
+      <a mat-list-item routerLink="/clientes" routerLinkActive="active">
+        <mat-icon>groups</mat-icon>
+        Clientes
+      </a>
+
+      <a mat-list-item routerLink="/github" routerLinkActive="active">
+        <mat-icon>code</mat-icon>
+        GitHub
+      </a>
+
+      <a mat-list-item routerLink="/logout" routerLinkActive="active">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </a>
+
+    </mat-nav-list>
+
+  </mat-drawer>
+
+  <div class="sidenav-content">
+
+    <button
+      class="menu"
+      (click)="drawer.toggle()"
+      mat-icon-button>
+
+      <mat-icon>menu</mat-icon>
+
+    </button>
+
+  </div>
+
+</mat-drawer-container>

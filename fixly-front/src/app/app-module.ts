@@ -23,10 +23,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 //Componentes do projetos
 import { Nav } from './components/nav/nav';
-import { Index } from './telas/index/index';
+import { Index } from './pages/index/index';
 
 @NgModule({
   declarations: [App, Nav, Index],
@@ -46,6 +47,7 @@ import { Index } from './telas/index/index';
     MatPaginatorModule,
     MatToolbarModule,
     MatListModule,
+    MatSidenavModule
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
