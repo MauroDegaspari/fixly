@@ -5,7 +5,13 @@ import { Nav } from './components/nav/nav';
 import { Home } from './components/home/home';
 
 const routes: Routes = [
-  {path:'', component: Nav, children:[ {path:'home', component: Home}]}
+  {path:'', component: Nav, children:[
+     { path:'home', component: Home },
+     { path: 'tecnico', component: Index },
+       // rota padrão
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
+    ]}
+ 
 ];
 
 @NgModule({
