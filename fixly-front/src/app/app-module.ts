@@ -26,12 +26,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 //Componentes do projetos
-import { Nav } from './components/nav/nav';
+import { Nav } from './components/sidnav/nav';
 import { Index } from './pages/index/index';
 import { Home } from './components/home/home';
+import { TecList } from './components/tecnicos/tec-list/tec-list';
 
 @NgModule({
-  declarations: [App, Nav, Index, Home],
+  declarations: [App, Nav, Index, Home, TecList],
   imports: [
     BrowserModule,
     AppRoutingModule,

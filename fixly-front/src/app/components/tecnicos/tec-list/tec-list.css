@@ -1,0 +1,137 @@
+.container-table{
+    width:95%;
+    margin:auto;
+    padding:30px;
+    color:white;
+    font-family:'Poppins', sans-serif;
+}
+
+/* TOPO */
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.table-header h1{
+    font-size:2rem;
+    font-weight:700;
+    color:#60a5fa;
+    margin-bottom:5px;
+}
+
+.table-header p{
+    color:#94a3b8;
+}
+
+/* BOTÃO */
+
+.btn-add{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 22px;
+    border-radius:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(37,99,235,0.35);
+}
+
+.btn-add:hover{
+    transform:translateY(-3px);
+    background:#1d4ed8;
+}
+
+/* CARD DA TABELA */
+
+.table-content{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    overflow:hidden;
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* TABELA */
+
+table{
+    width:100%;
+    background:transparent !important;
+}
+
+/* HEADER */
+
+th{
+    background:#111c33 !important;
+    color:#60a5fa !important;
+    font-size:0.95rem;
+    font-weight:600;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* LINHAS */
+
+td{
+    color:#e2e8f0 !important;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* HOVER */
+
+.table-row{
+    transition:0.3s;
+}
+
+.table-row:hover{
+    background:rgba(37,99,235,0.08);
+}
+
+/* STATUS */
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:0.85rem;
+    font-weight:600;
+}
+
+.status.active{
+    background:#22c55e20;
+    color:#4ade80;
+}
+
+/* PAGINADOR */
+
+mat-paginator{
+    background:#111c33 !important;
+    color:white !important;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* TEXTO PAGINADOR */
+
+mat-paginator,
+mat-paginator div,
+mat-paginator span{
+    color:#e2e8f0 !important;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .table-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .container-table{
+        width:100%;
+        padding:15px;
+    }
+}
