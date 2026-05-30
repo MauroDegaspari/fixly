@@ -30,9 +30,10 @@ import { Nav } from './components/sidnav/nav';
 import { Index } from './pages/index/index';
 import { Home } from './components/home/home';
 import { TecList } from './components/tecnicos/tec-list/tec-list';
+import { Login } from './components/login/login';
 
 @NgModule({
-  declarations: [App, Nav, Index, Home, TecList],
+  declarations: [App, Nav, Index, Home, TecList, Login],
   imports: [
     BrowserModule,
     AppRoutingModule,
