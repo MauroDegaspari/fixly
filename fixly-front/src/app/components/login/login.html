@@ -4,6 +4,10 @@
 
   <div class="login-card">
 
+    <mat-icon class="login-icon">
+        security
+    </mat-icon>
+
     <div class="logo">
       Fixly
     </div>
@@ -21,9 +25,7 @@
 
         <mat-label>Email</mat-label>
 
-        <input
-          matInput
-          placeholder="Digite seu email">
+        <input [formControl]="email" required [(ngModel)]="credenciais.email" name="email" matInput placeholder="Digite seu email">
 
       </mat-form-field>
 
@@ -31,16 +33,11 @@
 
         <mat-label>Senha</mat-label>
 
-        <input
-          matInput
-          type="password"
-          placeholder="Digite sua senha">
+        <input [formControl]="senha" required [(ngModel)]="credenciais.senha" name="senha" matInput type="password"  placeholder="Digite sua senha">
 
       </mat-form-field>
 
-      <button
-        mat-raised-button
-        class="btn-login">
+      <button [disabled]="!validarCampos()" mat-raised-button class="btn-login">
 
         Entrar
 

@@ -51,6 +51,8 @@ import { Login } from './components/login/login';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
