@@ -25,7 +25,9 @@
 
         <mat-label>Email</mat-label>
 
+
         <input [formControl]="email" required [(ngModel)]="credenciais.email" name="email" matInput placeholder="Digite seu email">
+
 
       </mat-form-field>
 
@@ -33,11 +35,13 @@
 
         <mat-label>Senha</mat-label>
 
+
         <input [formControl]="senha" required [(ngModel)]="credenciais.senha" name="senha" matInput type="password"  placeholder="Digite sua senha">
 
       </mat-form-field>
 
       <button [disabled]="!validarCampos()" mat-raised-button class="btn-login">
+
 
         Entrar
 
