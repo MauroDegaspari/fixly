@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ToastrModule } from 'ngx-toastr';
 
 //Componentes do projetos
 import { Nav } from './components/sidnav/nav';
@@ -53,6 +54,12 @@ import { Login } from './components/login/login';
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      closeButton: true,
+      progressBar: true,
+      positionClass: 'toast-top-right',
+    }),
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
