@@ -32,6 +32,7 @@ import { Index } from './pages/index/index';
 import { Home } from './components/home/home';
 import { TecList } from './components/tecnicos/tec-list/tec-list';
 import { Login } from './components/login/login';
+import { AuthInterceptorsProvider } from './interceptors/auth.interceptors';
 
 @NgModule({
   declarations: [App, Nav, Index, Home, TecList, Login],
@@ -61,7 +62,7 @@ import { Login } from './components/login/login';
       positionClass: 'toast-top-right',
     }),
   ],
-  providers: [provideBrowserGlobalErrorListeners()],
+  providers: [provideBrowserGlobalErrorListeners(), AuthInterceptorsProvider],
   bootstrap: [App],
 })
 export class AppModule {}
