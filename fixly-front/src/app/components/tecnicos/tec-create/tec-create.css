@@ -1,0 +1,136 @@
+/* ELEVAÇÃO DO MODAL: Fundo um pouco mais claro que o sistema */
+::ng-deep .mdc-dialog .mdc-dialog__surface {
+    background-color: #1e293b !important; /* Um tom mais claro/acinzentado para destacar do fundo */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; /* Borda um pouco mais visível */
+    border-radius: 24px !important; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6) !important; /* Sombra mais difusa */
+}
+
+/* TÍTULO DO MODAL */
+.modal-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 15px;
+    color: #f8fafc; /* Texto quase branco para saltar aos olhos */
+}
+
+/* CONTEÚDO E FORMULÁRIO */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px !important;
+}
+
+.modal-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 15px;
+    color: #f8fafc;
+    cursor: grab; /* Muda o mouse para a "mãozinha" de arrastar */
+}
+
+.modal-title:active {
+    cursor: grabbing; /* Muda a "mãozinha" quando estiver segurando o clique */
+}
+
+.illustration {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 25px 0;
+    color: #60a5fa; 
+}
+
+.illustration .fallback-icon {
+    font-size: 70px;
+    width: 70px;
+    height: 70px;
+    opacity: 0.9;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* GRUPO DE CHECKBOXES */
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+::ng-deep .checkbox-group .mdc-form-field {
+    color: #f1f5f9 !important; /* Texto mais claro e nítido */
+}
+
+/* LARGURA TOTAL PARA INPUTS */
+.full-width {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* INPUTS COM PROFUNDIDADE: Fundo mais escuro que o modal */
+::ng-deep .full-width .mat-mdc-text-field-wrapper {
+    background-color: rgba(0, 0, 0, 0.25) !important; /* Cria um aspecto de "buraco/encaixe" */
+    border-radius: 14px;
+}
+
+::ng-deep .full-width .mdc-text-field--outlined .mdc-notched-outline {
+    border-color: rgba(255, 255, 255, 0.3) !important; /* Borda mais definida */
+}
+
+::ng-deep .full-width input.mat-mdc-input-element, 
+::ng-deep .full-width .mat-mdc-form-field-icon-suffix {
+    color: #ffffff !important; /* Letras brancas ao digitar */
+}
+
+::ng-deep .full-width .mdc-floating-label {
+    color: #94a3b8 !important;
+}
+
+/* ÁREA DOS BOTÕES */
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 24px 24px 24px !important;
+    margin-bottom: 10px;
+}
+
+/* BOTÃO CADASTRAR */
+.btn-submit {
+    width: 100%;
+    background-color: #2563eb !important; 
+    color: white !important;
+    padding: 24px 0 !important;
+    border-radius: 14px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #3b82f6 !important; /* Hover mais claro para dar vida */
+}
+
+/* BOTÃO CANCELAR */
+.btn-cancel {
+    width: 100%;
+    color: #fca5a5 !important; /* Vermelho mais pastel e legível no escuro */
+    border: 1px solid rgba(248, 113, 113, 0.5) !important; 
+    padding: 24px 0 !important;
+    border-radius: 14px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: rgba(239, 68, 68, 0.15) !important; 
+}

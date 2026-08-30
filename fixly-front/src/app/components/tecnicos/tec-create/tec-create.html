@@ -1,1 +1,54 @@
-<p>tec-create works!</p>
+<h2 mat-dialog-title class="modal-title" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    Cadastrar Técnico
+</h2>
+
+<mat-dialog-content class="modal-content">
+    
+    <!-- Ilustração / Ícone de destaque -->
+    <div class="illustration">
+        <!-- Se tiver a imagem SVG, descomente a linha abaixo e ajuste o caminho -->
+        <!-- <img src="assets/img/cadastro-ilustracao.svg" alt="Ilustração Cadastro"> -->
+        <mat-icon class="fallback-icon">manage_accounts</mat-icon>
+    </div>
+
+    <form class="form-cadastro">
+        
+        <!-- Checkboxes de Perfil -->
+        <div class="checkbox-group">
+            <mat-checkbox color="primary">Admin</mat-checkbox>
+            <mat-checkbox color="primary">Cliente</mat-checkbox>
+            <mat-checkbox color="primary" [checked]="true">Técnico</mat-checkbox>
+        </div>
+
+        <!-- Campos de Texto -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Insira o nome" name="nome">
+            <mat-icon matSuffix>sentiment_satisfied_alt</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="Ex. 000.000.000-00" name="cpf">
+            <mat-icon matSuffix>pin</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="Ex. email@dominio.com" name="email">
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" placeholder="Ex.. 1234" name="senha">
+            <mat-icon matSuffix>more_horiz</mat-icon>
+        </mat-form-field>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="modal-actions">
+    <button mat-flat-button class="btn-submit">Cadastrar</button>
+    <button mat-stroked-button class="btn-cancel" mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

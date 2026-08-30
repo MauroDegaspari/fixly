@@ -25,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 //Componentes do projetos
 import { Nav } from './components/sidnav/nav';
 import { Index } from './pages/index/index';
@@ -58,6 +59,8 @@ import { TecCreate } from './components/tecnicos/tec-create/tec-create';
     FormsModule,
     ReactiveFormsModule,
     MatTooltipModule,
+    MatDialogModule,
+    DragDropModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

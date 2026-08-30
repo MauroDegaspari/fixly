@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Tecnico } from '../../../models/tecnicos';
 import { TecnicoService } from '../../../services/tecnico-service';
+import { MatDialog } from '@angular/material/dialog';
+import { TecCreate } from '../tec-create/tec-create';
 
 @Component({
   selector: 'app-tec-list',
@@ -19,7 +21,7 @@ export class TecList implements AfterViewInit {
 
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
-  constructor( private tecnicoService: TecnicoService) { }
+  constructor( private tecnicoService: TecnicoService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.findAll();
@@ -53,6 +55,13 @@ export class TecList implements AfterViewInit {
   deletarTecnico(element: any) {
     console.log('Deletar técnico:', element);
     // Adicione a lógica de exclusão aqui
+  }
+
+  abrirModal() {
+    this.dialog.open(TecCreate, {
+      width: '500px', // Você pode ajustar a largura do modal aqui
+      disableClose: true // Opcional: impede de fechar ao clicar fora do modal
+    });
   }
 
 }
