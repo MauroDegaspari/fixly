@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Para realizar Requisições  HTTP
 import { HttpClient } from '@angular/common/http';
-
+import { authInterceptors } from './interceptors/auth.interceptors';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -32,7 +32,7 @@ import { Index } from './pages/index/index';
 import { Home } from './components/home/home';
 import { TecList } from './components/tecnicos/tec-list/tec-list';
 import { Login } from './components/login/login';
-import { AuthInterceptorsProvider } from './interceptors/auth.interceptors';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 @NgModule({
   declarations: [App, Nav, Index, Home, TecList, Login],
@@ -62,7 +62,11 @@ import { AuthInterceptorsProvider } from './interceptors/auth.interceptors';
       positionClass: 'toast-top-right',
     }),
   ],
-  providers: [provideBrowserGlobalErrorListeners(), AuthInterceptorsProvider],
+ providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(withInterceptors([authInterceptors])),
+  ],
+  
   bootstrap: [App],
 })
 export class AppModule {}
