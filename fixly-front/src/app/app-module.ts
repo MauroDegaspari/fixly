@@ -34,10 +34,10 @@ import { TecList } from './components/tecnicos/tec-list/tec-list';
 import { Login } from './components/login/login';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { TecCreate } from './components/tecnicos/tec-create/tec-create';
 
 @NgModule({
-  declarations: [App, Nav, Index, Home, TecList, Login],
+  declarations: [App, Nav, Index, Home, TecList, Login, TecCreate],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -65,11 +65,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       positionClass: 'toast-top-right',
     }),
   ],
- providers: [
+  providers: [
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(withInterceptors([authInterceptors])),
   ],
-  
+
   bootstrap: [App],
 })
 export class AppModule {}
