@@ -32,5 +32,9 @@ export class Auth {
       }
       return false;
   }
+
+  logout(){
+    localStorage.removeItem('token');
+  }
 }
   

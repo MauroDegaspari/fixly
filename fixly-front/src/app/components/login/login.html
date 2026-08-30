@@ -1,11 +1,10 @@
 <div class="background"></div>
 
 <div class="login-container">
-
   <div class="login-card">
 
     <mat-icon class="login-icon">
-        security
+      security
     </mat-icon>
 
     <div class="logo">
@@ -19,15 +18,17 @@
       técnicos e clientes.
     </p>
 
-    <form class="login-form">
+    <form class="login-form" (ngSubmit)="logar()">
 
       <mat-form-field appearance="outline" class="full-width">
 
         <mat-label>Email</mat-label>
 
-
-        <input [formControl]="email" required [(ngModel)]="credenciais.email" name="email" matInput placeholder="Digite seu email">
-
+        <input
+          matInput
+          type="email"
+          [formControl]="email"
+          placeholder="Digite seu email">
 
       </mat-form-field>
 
@@ -35,13 +36,19 @@
 
         <mat-label>Senha</mat-label>
 
-
-        <input [formControl]="senha" required [(ngModel)]="credenciais.senha" name="senha" matInput type="password"  placeholder="Digite sua senha">
+        <input
+          matInput
+          type="password"
+          [formControl]="senha"
+          placeholder="Digite sua senha">
 
       </mat-form-field>
 
-      <button (click)="logar()" [disabled]="!validarCampos()" mat-raised-button class="btn-login">
-
+      <button
+        type="submit"
+        [disabled]="!validarCampos()"
+        mat-raised-button
+        class="btn-login">
 
         Entrar
 
@@ -54,5 +61,4 @@
     </span>
 
   </div>
-
 </div>

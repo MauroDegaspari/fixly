@@ -30,13 +30,38 @@ ngOnInit(): void{}
 
 
  logar() {
-    this.service.authenticate(this.credenciais).subscribe( resposta => {
-    this.service.successfulLogin(resposta.headers.get('Authorization').substring(7));
-    this.router.navigate(['']);
-    } , () => {
-    this.toastr.error('Email ou senha inválidos', 'Falha no login');
-    });
+   
+  if (!this.validarCampos()) {
+    return;
   }
+
+  const credenciais: Credenciais = {
+    email: this.email.value ?? '',
+    senha: this.senha.value ?? ''
+  };
+
+  this.service.authenticate(credenciais).subscribe(
+    resposta => {
+
+      const authorization = resposta.headers.get('Authorization');
+
+      if (authorization) {
+        this.service.successfulLogin(
+          authorization.substring(7)
+        );
+
+        this.router.navigate(['']);
+      }
+
+    },
+    () => {
+      this.toastr.error(
+        'Email ou senha inválidos',
+        'Falha no login'
+      );
+    }
+  );
+}
 
  validarCampos(): boolean {
     if(this.email.valid && this.senha.valid) {
