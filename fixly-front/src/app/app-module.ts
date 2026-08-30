@@ -33,6 +33,8 @@ import { Home } from './components/home/home';
 import { TecList } from './components/tecnicos/tec-list/tec-list';
 import { Login } from './components/login/login';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [App, Nav, Index, Home, TecList, Login],
@@ -55,6 +57,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTooltipModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

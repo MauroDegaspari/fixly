@@ -13,13 +13,9 @@ import { TecnicoService } from '../../../services/tecnico-service';
 
 export class TecList implements AfterViewInit {
 
-  ELEMENT_DATA: Tecnico[] = [
-    
+  ELEMENT_DATA: Tecnico[] = [];
 
-
-  ];
-
-  displayedColumns: string[] = ['id', 'name','email', 'perfil', 'acao'];
+  displayedColumns: string[] = ['id', 'name','email', 'cpf', 'acao'];
 
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
@@ -42,6 +38,21 @@ export class TecList implements AfterViewInit {
       this.dataSource = new MatTableDataSource<Tecnico>(resposta);
       this.dataSource.paginator = this.paginator;
     }); 
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+   }
+
+  editarTecnico(element: any) {
+    console.log('Editar técnico:', element);
+    // Adicione a lógica de navegação ou abertura de modal aqui
+  }
+
+  deletarTecnico(element: any) {
+    console.log('Deletar técnico:', element);
+    // Adicione a lógica de exclusão aqui
   }
 
 }
