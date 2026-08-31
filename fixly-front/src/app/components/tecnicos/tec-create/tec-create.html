@@ -15,33 +15,33 @@
         
         <!-- Checkboxes de Perfil -->
         <div class="checkbox-group">
-            <mat-checkbox color="primary">Admin</mat-checkbox>
-            <mat-checkbox color="primary">Cliente</mat-checkbox>
-            <mat-checkbox color="primary" [checked]="true">Técnico</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(0)" color="primary">Admin</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(1)" color="primary">Cliente</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(2)" color="primary">Técnico</mat-checkbox>
         </div>
 
         <!-- Campos de Texto -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Nome</mat-label>
-            <input matInput placeholder="Insira o nome" name="nome">
+            <input [(ngModel)]="tecnico.nome" name="nome" [formControl]="nome" required matInput placeholder="Insira o nome" name="nome">
             <mat-icon matSuffix>sentiment_satisfied_alt</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>CPF</mat-label>
-            <input matInput placeholder="Ex. 000.000.000-00" name="cpf">
+            <input [(ngModel)]="tecnico.cpf" name="cpf" [formControl]="cpf" mask="000.000.000-00" matInput placeholder="Ex. 000.000.000-00" name="cpf">
             <mat-icon matSuffix>pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="Ex. email@dominio.com" name="email">
+            <input [(ngModel)]="tecnico.email" name="email" [formControl]="email" required matInput placeholder="Ex. email@dominio.com" name="email">
             <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="Ex.. 1234" name="senha">
+            <input [(ngModel)]="tecnico.senha" name="senha" [formControl]="senha" required matInput type="password" placeholder="Ex.. 1234" name="senha">
             <mat-icon matSuffix>more_horiz</mat-icon>
         </mat-form-field>
 
@@ -49,6 +49,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions class="modal-actions">
-    <button mat-flat-button class="btn-submit">Cadastrar</button>
+    <button [disabled]="!validarCampos()" (click)="createTec()" mat-flat-button class="btn-submit">Cadastrar</button>
     <button mat-stroked-button class="btn-cancel" mat-dialog-close>Cancelar</button>
 </mat-dialog-actions>

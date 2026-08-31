@@ -67,6 +67,7 @@ import { TecCreate } from './components/tecnicos/tec-create/tec-create';
       progressBar: true,
       positionClass: 'toast-top-right',
     }),
+    
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
