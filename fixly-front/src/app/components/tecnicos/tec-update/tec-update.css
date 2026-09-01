@@ -1,0 +1,120 @@
+/* ELEVAÇÃO DO MODAL */
+::ng-deep .mdc-dialog .mdc-dialog__surface {
+    background-color: #1e293b !important; 
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; 
+    border-radius: 24px !important; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6) !important; 
+}
+
+/* HEADER HORIZONTAL */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 15px 24px;
+    cursor: grab;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+.modal-header:active { cursor: grabbing; }
+
+.modal-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: #facc15;
+}
+
+.id-badge {
+    background: rgba(250, 204, 21, 0.15);
+    color: #facc15;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.modal-content {
+    padding: 0 24px !important;
+}
+
+/* SEÇÃO DE PERFIL HORIZONTAL */
+.perfil-section {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 12px 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-label {
+    color: #94a3b8;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 25px;
+}
+::ng-deep .checkbox-group .mdc-form-field { color: #f1f5f9 !important; }
+
+/* LAYOUT GRID DOS INPUTS */
+.inputs-grid {
+    display: grid;
+    /* Coluna da esquerda (Nome/Email) maior que a da direita (CPF/Senha) */
+    grid-template-columns: 2fr 1fr; 
+    /* 15px de distância vertical (entre as linhas) e 30px horizontal (entre as colunas) */
+    gap: 15px 30px; 
+}
+
+/* INPUTS ESCUROS */
+::ng-deep .inputs-grid .mat-mdc-text-field-wrapper {
+    background-color: rgba(0, 0, 0, 0.25) !important; 
+    border-radius: 14px;
+}
+::ng-deep .inputs-grid .mdc-text-field--outlined .mdc-notched-outline {
+    border-color: rgba(255, 255, 255, 0.2) !important; 
+}
+::ng-deep .inputs-grid input.mat-mdc-input-element, 
+::ng-deep .inputs-grid .mat-mdc-form-field-icon-suffix { color: #ffffff !important; }
+::ng-deep .inputs-grid .mdc-floating-label { color: #94a3b8 !important; }
+
+/* BOTÕES ALINHADOS À DIREITA */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 0 24px 24px 24px !important;
+    margin-top: 10px;
+}
+
+.btn-submit {
+    background-color: #eab308 !important; 
+    color: #451a03 !important; 
+    padding: 0 32px !important;
+    height: 48px;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    transition: 0.3s;
+}
+.btn-submit:hover { background-color: #facc15 !important; }
+
+.btn-cancel {
+    color: #94a3b8 !important; 
+    border: 1px solid rgba(148, 163, 184, 0.4) !important; 
+    padding: 0 32px !important;
+    height: 48px;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    background: transparent;
+    transition: 0.3s;
+}
+.btn-cancel:hover { background-color: rgba(148, 163, 184, 0.1) !important; }

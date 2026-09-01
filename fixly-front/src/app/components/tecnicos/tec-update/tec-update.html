@@ -1,0 +1,58 @@
+<!-- Cabeçalho na Horizontal -->
+<div class="modal-header" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+    <h2 mat-dialog-title class="modal-title">Atualizar Técnico</h2>
+    <span class="id-badge">ID: {{ data.id }}</span>
+</div>
+
+<mat-dialog-content class="modal-content">
+    <form class="form-cadastro">
+        
+        <!-- Perfil em destaque no topo -->
+        <div class="perfil-section">
+            <span class="section-label">Perfil de Acesso:</span>
+            <div class="checkbox-group">
+                <mat-checkbox color="accent" [checked]="hasPerfil(0)" (change)="addPerfil(0)">Admin</mat-checkbox>
+                <mat-checkbox color="accent" [checked]="hasPerfil(1)" (change)="addPerfil(1)">Cliente</mat-checkbox>
+                <mat-checkbox color="accent" [checked]="hasPerfil(2)" (change)="addPerfil(2)">Técnico</mat-checkbox>
+            </div>
+        </div>
+
+        <!-- Grid para alinhar Inputs em 2 colunas e 2 linhas -->
+        <div class="inputs-grid">
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Nome Completo</mat-label>
+                <input matInput [formControl]="nome" placeholder="Insira o nome">
+                <mat-icon matSuffix>sentiment_satisfied_alt</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input matInput [formControl]="cpf" placeholder="Ex. 000.000.000-00">
+                <mat-icon matSuffix>pin</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput [formControl]="email" placeholder="Ex. email@dominio.com">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Nova Senha (Opcional)</mat-label>
+                <input matInput type="password" [formControl]="senha" placeholder="Só se for alterar">
+                <mat-icon matSuffix>lock_reset</mat-icon>
+            </mat-form-field>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<!-- Botões alinhados à direita -->
+<mat-dialog-actions class="modal-actions">
+    <button mat-stroked-button class="btn-cancel" mat-dialog-close>Cancelar</button>
+    <!-- Adicionado o [disabled] vinculado ao seu método validarCampos() -->
+    <button mat-flat-button class="btn-submit" (click)="updateTec()" [disabled]="!validarCampos()">
+        Salvar Alterações
+    </button>
+</mat-dialog-actions>

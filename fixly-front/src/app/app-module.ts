@@ -36,9 +36,10 @@ import { Login } from './components/login/login';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TecCreate } from './components/tecnicos/tec-create/tec-create';
+import { TecUpdate } from './components/tecnicos/tec-update/tec-update';
 
 @NgModule({
-  declarations: [App, Nav, Index, Home, TecList, Login, TecCreate],
+  declarations: [App, Nav, Index, Home, TecList, Login, TecCreate, TecUpdate],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,7 +68,6 @@ import { TecCreate } from './components/tecnicos/tec-create/tec-create';
       progressBar: true,
       positionClass: 'toast-top-right',
     }),
-    
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

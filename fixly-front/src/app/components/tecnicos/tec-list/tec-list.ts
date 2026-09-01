@@ -5,6 +5,7 @@ import { Tecnico } from '../../../models/tecnicos';
 import { TecnicoService } from '../../../services/tecnico-service';
 import { MatDialog } from '@angular/material/dialog';
 import { TecCreate } from '../tec-create/tec-create';
+import { TecUpdate } from '../tec-update/tec-update';
 
 @Component({
   selector: 'app-tec-list',
@@ -47,10 +48,13 @@ export class TecList implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
    }
 
-  editarTecnico(element: any) {
-    console.log('Editar técnico:', element);
-    // Adicione a lógica de navegação ou abertura de modal aqui
-  }
+  editarTecnicoModal(element: any) {
+  this.dialog.open(TecUpdate, {
+    width: '900px',
+    maxWidth: '900px',
+    data: element // Envia todos os dados da linha, incluindo o ID
+  });
+}
 
   deletarTecnico(element: any) {
     console.log('Deletar técnico:', element);
