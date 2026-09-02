@@ -5,6 +5,7 @@ import { TecnicoService } from '../../../services/tecnico-service';
 import { Tecnico } from '../../../models/tecnicos';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-tec-update',
   standalone: false,
@@ -12,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './tec-update.css',
 })
 export class TecUpdate implements OnInit {
-
+  
   tecnico: Tecnico = {
     id: '',
     nome: '',
@@ -30,7 +31,7 @@ export class TecUpdate implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any, 
-    private service: TecnicoService, 
+    private tecnicoService: TecnicoService, 
     private toast: ToastrService,
     private dialogRef: MatDialogRef<TecUpdate>
   ) { }
@@ -79,11 +80,11 @@ export class TecUpdate implements OnInit {
     this.tecnico.email = this.email.value;
     this.tecnico.senha = this.senha.value;
 
-    this.service.updateTecnico(this.tecnico).subscribe(
+    this.tecnicoService.updateTecnico(this.tecnico).subscribe(
       resposta => {
         this.toast.success('Técnico Atualizado com sucesso', 'Atualização de Cadastro');
-        this.dialogRef.close(true); // Fecha o modal
-      }, 
+        this.dialogRef.close(this.tecnico.id); // Fecha o modal
+     }, 
       ex => {
         if (ex.error.errors) {
           ex.error.errors.forEach((element: any) => {

@@ -117,3 +117,26 @@
   color:#64748b;
   font-size:.9rem;
 }
+
+::ng-deep .login-form .mat-mdc-text-field-wrapper {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 14px;
+}
+
+::ng-deep .login-form .mdc-text-field--outlined .mdc-notched-outline {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+::ng-deep .login-form input.mat-mdc-input-element, 
+::ng-deep .login-form .mat-mdc-form-field-icon-suffix,
+::ng-deep .login-form .mat-mdc-form-field-icon-prefix {
+    color: #ffffff !important;
+}
+
+::ng-deep .login-form .mdc-floating-label {
+    color: #94a3b8 !important;
+}
+
+::ng-deep .login-form .mdc-text-field--focused .mdc-floating-label {
+    color: #60a5fa !important;
+}

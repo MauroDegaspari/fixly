@@ -3,8 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { TecnicoService } from '../../../services/tecnico-service';
 import { Tecnico } from '../../../models/tecnicos';
 import { ToastrService } from 'ngx-toastr';
-import { Index } from '../../../pages/index';
-import { Route, Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tec-create',
@@ -30,13 +29,14 @@ cpf: FormControl = new FormControl(null, Validators.required);
 email: FormControl = new FormControl(null, Validators.email);
 senha: FormControl = new FormControl(null, Validators.minLength(3));
 
-constructor ( private sercive: TecnicoService, private toast: ToastrService) {}
+constructor ( private sercive: TecnicoService, private toast: ToastrService, private dialogRef: MatDialogRef<TecCreate>) {}
 
 
 
 createTec(): void{
   this.sercive.createTecnico(this.tecnico).subscribe(resposta =>{
   this.toast.success('Técnico cadastrado com sucesso', 'Cadastro:');
+  this.dialogRef.close(true); // Fecha o modal
   
   
   }, ex =>  {

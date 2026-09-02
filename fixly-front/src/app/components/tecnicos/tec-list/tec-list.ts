@@ -16,6 +16,8 @@ import { TecUpdate } from '../tec-update/tec-update';
 
 export class TecList implements AfterViewInit {
 
+  linhaEmDestaque: any = null;
+
   ELEMENT_DATA: Tecnico[] = [];
 
   displayedColumns: string[] = ['id', 'name','email', 'cpf', 'acao'];
@@ -48,11 +50,32 @@ export class TecList implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
    }
 
+     createTecnicoModal() {
+    const dialogRef = this.dialog.open(TecCreate, {
+      width: '500px', // Você pode ajustar a largura do modal aqui
+      disableClose: true // Opcional: impede de fechar ao clicar fora do modal
+    });
+    dialogRef.afterClosed().subscribe(resultado => {
+      if (resultado) {
+        this.findAll();
+      }
+    });
+  }
+
   editarTecnicoModal(element: any) {
-  this.dialog.open(TecUpdate, {
-    width: '900px',
-    maxWidth: '900px',
-    data: element // Envia todos os dados da linha, incluindo o ID
+    const dialogRef = this.dialog.open(TecUpdate, {
+      width: '900px',
+      maxWidth: '900px',
+      data: element // Envia todos os dados da linha, incluindo o ID
+    });
+    dialogRef.afterClosed().subscribe(resultado => {
+      if (resultado) {
+        this.linhaEmDestaque = resultado; // Armazena o ID do técnico atualizado  
+        this.findAll(); 
+        setTimeout(() => {
+          this.linhaEmDestaque = null;
+        }, 3000);
+      }
   });
 }
 
@@ -60,13 +83,5 @@ export class TecList implements AfterViewInit {
     console.log('Deletar técnico:', element);
     // Adicione a lógica de exclusão aqui
   }
-
-  abrirModal() {
-    this.dialog.open(TecCreate, {
-      width: '500px', // Você pode ajustar a largura do modal aqui
-      disableClose: true // Opcional: impede de fechar ao clicar fora do modal
-    });
-  }
-
 }
 

@@ -13,7 +13,7 @@
                 <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
 
-            <button class="btn-add" (click)="abrirModal()" matTooltip="Adicionar Técnico" matTooltipPosition="above">
+            <button class="btn-add" (click)="createTecnicoModal()" matTooltip="Adicionar Técnico" matTooltipPosition="above">
                + Novo Técnico
             </button>
         </div>
@@ -62,7 +62,8 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
-            <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;">
+            <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'row-glow': row.id == linhaEmDestaque}">
+                    
             </tr>
 
         </table>

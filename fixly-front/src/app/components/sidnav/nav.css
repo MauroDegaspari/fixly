@@ -105,3 +105,21 @@
   background: #2563eb !important;
   transform: scale(1.05);
 }
+
+/* Força a cor cinza-claro nos textos dos links gerados pelo Material */
+::ng-deep .nav-list a .mdc-list-item__primary-text,
+::ng-deep .nav-list a .mdc-list-item__content {
+    color: #cbd5e1 !important;
+}
+
+/* Deixa o texto totalmente branco ao passar o mouse */
+::ng-deep .nav-list a:hover .mdc-list-item__primary-text,
+::ng-deep .nav-list a:hover .mdc-list-item__content {
+    color: #ffffff !important;
+}
+
+/* Deixa o texto totalmente branco quando o menu estiver ativo */
+::ng-deep .nav-list a.active .mdc-list-item__primary-text,
+::ng-deep .nav-list a.active .mdc-list-item__content {
+    color: #ffffff !important;
+}
