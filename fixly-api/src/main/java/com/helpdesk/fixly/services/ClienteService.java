@@ -54,8 +54,12 @@ public class ClienteService {
 	public ClientesModel Atualizar(@Valid Integer id, ClienteDto objTecnico) {
 		
 		objTecnico.setId(id);// Evita falha de segurança.
-		
 		ClientesModel novoTec = AcharClienteId(id);
+		
+		if (!objTecnico.getSenha().equals(novoTec.getSenha())){
+			objTecnico.setSenha(encoder.encode(objTecnico.getSenha()));
+		}
+		
 		validarCpfEEmail(objTecnico);
 		novoTec = new ClientesModel(objTecnico);
 		

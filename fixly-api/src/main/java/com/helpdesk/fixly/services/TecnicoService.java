@@ -53,9 +53,13 @@ public class TecnicoService {
 
 	public TecnicosModel Atualizar(@Valid Integer id, TecnicoDto objTecnico) {
 		
-		objTecnico.setId(id);// Evita falha de segurança.
-		
+		objTecnico.setId(id);// Evita falha de segurança.		
 		TecnicosModel novoTec = AcharTecnicoId(id);
+		
+		if (!objTecnico.getSenha().equals(novoTec.getSenha())){
+			objTecnico.setSenha(encoder.encode(objTecnico.getSenha()));
+		}
+		
 		validarCpfEEmail(objTecnico);
 		novoTec = new TecnicosModel(objTecnico);
 		
